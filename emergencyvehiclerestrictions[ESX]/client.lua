@@ -1,4 +1,3 @@
-
 ESX                    = nil
 local PlayerData    = {}
 
@@ -17,20 +16,11 @@ Citizen.CreateThread(function()
         PlayerData = ESX.GetPlayerData()
         
         if GetVehicleClass( GetVehiclePedIsIn(ped, false ) ) == 18 and GetPedInVehicleSeat(GetVehiclePedIsIn(PlayerPedId()), -1) == PlayerPedId() then
-            if PlayerData.job.name ~= 'police' and PlayerData.job.name ~= 'ambulance' and PlayerData.job.name ~= 'mechanic' then
+            if PlayerData.job.name ~= 'police' and PlayerData.job.name ~= 'ambulance' and PlayerData.job.name ~= 'marshals' then
                
                 TaskLeaveVehicle(ped,vehicle,0)
                 TriggerEvent('esx:showNotification', "~r~You are not allowed to drive this ~y~vehicle.")
             end
-		else
-		
-			if GetVehicleClass( GetVehiclePedIsIn(ped, false ) ) == 18 and GetPedInVehicleSeat(GetVehiclePedIsIn(PlayerPedId()), -1) == PlayerPedId() then
-				if PlayerData.job.name ~= 'police' and PlayerData.job.name ~= 'ambulance' and PlayerData.job.name ~= 'mechanic' then
-					
-					TaskLeaveVehicle(ped,vehicle,0)
-                                        TriggerEvent('esx:showNotification', "~r~You are not allowed to drive this ~y~vehicle.")
-				end
-			end
-		end
 	end
+    end
 end)
